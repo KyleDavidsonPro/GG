@@ -8,38 +8,75 @@
 
 import SpriteKit
 
+private struct Constants {
+    static let noOfPedals = 6
+}
+
 class GameScene: SKScene {
+    
+    var pedals: [Pedal] = []
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!"
-        myLabel.fontSize = 45
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
-        
-        self.addChild(myLabel)
-    }
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       /* Called when a touch begins */
-        
-        for touch in touches {
-            let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
-        }
+        self.physicsWorld.gravity = CGVector(dx: 0.0, dy: 0.0)
+        self.physicsWorld.contactDelegate = self
+        self.setupPedals()
     }
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+    }
+    
+    func setupPedals() {
+        for i in 1...Constants.noOfPedals {
+            if let pedalRef = self.childNodeWithName("pedal_\(i)") as? SKReferenceNode,
+                pedal = pedalRef.childNodeWithName("pedal") as? Pedal {
+                pedals.append(pedal)
+                assert(pedals.count == Constants.noOfPedals)
+            }
+        }
+    }
+}
+
+// MARK: Touches
+
+extension GameScene {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        for touch in touches {
+            let location = touch.locationInNode(self)
+            let touchedNode = nodeAtPoint(location)
+            
+            if let pedal = touchedNode as? Pedal {
+                pedal.pushDown()
+            }
+        }
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        for touch in touches {
+            let location = touch.locationInNode(self)
+            let touchedNode = nodeAtPoint(location)
+            
+            if let pedal = touchedNode as? Pedal {
+                pedal.pullUp()
+            }
+        }
+    }
+}
+
+// MARK: Physics
+
+extension GameScene: SKPhysicsContactDelegate {
+    func didBeginContact(contact: SKPhysicsContact) {
+        let firstBody: SKPhysicsBody
+        let secondBody: SKPhysicsBody
+        
+        if (contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask) {
+            firstBody = contact.bodyA;
+            secondBody = contact.bodyB;
+        } else {
+            firstBody = contact.bodyB;
+            secondBody = contact.bodyA;
+        }
     }
 }

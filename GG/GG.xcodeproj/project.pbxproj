@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1725B7DD1CE91C0E0066EA13 /* Pedal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1725B7DC1CE91C0E0066EA13 /* Pedal.swift */; };
 		1758D7751CE7B56400EC84A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1758D7741CE7B56400EC84A1 /* AppDelegate.swift */; };
 		1758D7771CE7B56400EC84A1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1758D7761CE7B56400EC84A1 /* GameScene.sks */; };
 		1758D7791CE7B56400EC84A1 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1758D7781CE7B56400EC84A1 /* GameScene.swift */; };
@@ -14,9 +15,11 @@
 		1758D77E1CE7B56400EC84A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1758D77C1CE7B56400EC84A1 /* Main.storyboard */; };
 		1758D7801CE7B56400EC84A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1758D77F1CE7B56400EC84A1 /* Assets.xcassets */; };
 		1758D7831CE7B56400EC84A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1758D7811CE7B56400EC84A1 /* LaunchScreen.storyboard */; };
+		1758D78B1CE7BD4E00EC84A1 /* Pedal.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1758D78A1CE7BD4E00EC84A1 /* Pedal.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1725B7DC1CE91C0E0066EA13 /* Pedal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pedal.swift; sourceTree = "<group>"; };
 		1758D7711CE7B56400EC84A1 /* GG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1758D7741CE7B56400EC84A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1758D7761CE7B56400EC84A1 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		1758D77F1CE7B56400EC84A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1758D7821CE7B56400EC84A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1758D7841CE7B56400EC84A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1758D78A1CE7BD4E00EC84A1 /* Pedal.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Pedal.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1725B7DB1CE91BFA0066EA13 /* Pedal */ = {
+			isa = PBXGroup;
+			children = (
+				1725B7DC1CE91C0E0066EA13 /* Pedal.swift */,
+			);
+			name = Pedal;
+			sourceTree = "<group>";
+		};
 		1758D7681CE7B56400EC84A1 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +70,7 @@
 		1758D7731CE7B56400EC84A1 /* GG */ = {
 			isa = PBXGroup;
 			children = (
+				1725B7DB1CE91BFA0066EA13 /* Pedal */,
 				1758D7741CE7B56400EC84A1 /* AppDelegate.swift */,
 				1758D7761CE7B56400EC84A1 /* GameScene.sks */,
 				1758D7781CE7B56400EC84A1 /* GameScene.swift */,
@@ -66,6 +79,7 @@
 				1758D77F1CE7B56400EC84A1 /* Assets.xcassets */,
 				1758D7811CE7B56400EC84A1 /* LaunchScreen.storyboard */,
 				1758D7841CE7B56400EC84A1 /* Info.plist */,
+				1758D78A1CE7BD4E00EC84A1 /* Pedal.sks */,
 			);
 			path = GG;
 			sourceTree = "<group>";
@@ -132,6 +146,7 @@
 				1758D7831CE7B56400EC84A1 /* LaunchScreen.storyboard in Resources */,
 				1758D7801CE7B56400EC84A1 /* Assets.xcassets in Resources */,
 				1758D77E1CE7B56400EC84A1 /* Main.storyboard in Resources */,
+				1758D78B1CE7BD4E00EC84A1 /* Pedal.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1725B7DD1CE91C0E0066EA13 /* Pedal.swift in Sources */,
 				1758D7791CE7B56400EC84A1 /* GameScene.swift in Sources */,
 				1758D77B1CE7B56400EC84A1 /* GameViewController.swift in Sources */,
 				1758D7751CE7B56400EC84A1 /* AppDelegate.swift in Sources */,
@@ -296,6 +312,7 @@
 				1758D7891CE7B56400EC84A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
