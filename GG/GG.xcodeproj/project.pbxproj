@@ -16,6 +16,8 @@
 		1758D7801CE7B56400EC84A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1758D77F1CE7B56400EC84A1 /* Assets.xcassets */; };
 		1758D7831CE7B56400EC84A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1758D7811CE7B56400EC84A1 /* LaunchScreen.storyboard */; };
 		1758D78B1CE7BD4E00EC84A1 /* Pedal.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1758D78A1CE7BD4E00EC84A1 /* Pedal.sks */; };
+		17E894421CEA5D6200FC108F /* DynamicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E894411CEA5D6200FC108F /* DynamicType.swift */; };
+		17E894441CEA636800FC108F /* GeneratorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E894431CEA636800FC108F /* GeneratorType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		1758D7821CE7B56400EC84A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1758D7841CE7B56400EC84A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1758D78A1CE7BD4E00EC84A1 /* Pedal.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Pedal.sks; sourceTree = "<group>"; };
+		17E894411CEA5D6200FC108F /* DynamicType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicType.swift; sourceTree = "<group>"; };
+		17E894431CEA636800FC108F /* GeneratorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratorType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +50,7 @@
 		1725B7DB1CE91BFA0066EA13 /* Pedal */ = {
 			isa = PBXGroup;
 			children = (
+				1758D78A1CE7BD4E00EC84A1 /* Pedal.sks */,
 				1725B7DC1CE91C0E0066EA13 /* Pedal.swift */,
 			);
 			name = Pedal;
@@ -70,6 +75,7 @@
 		1758D7731CE7B56400EC84A1 /* GG */ = {
 			isa = PBXGroup;
 			children = (
+				17E894401CEA5D5800FC108F /* Protocol */,
 				1725B7DB1CE91BFA0066EA13 /* Pedal */,
 				1758D7741CE7B56400EC84A1 /* AppDelegate.swift */,
 				1758D7761CE7B56400EC84A1 /* GameScene.sks */,
@@ -79,9 +85,17 @@
 				1758D77F1CE7B56400EC84A1 /* Assets.xcassets */,
 				1758D7811CE7B56400EC84A1 /* LaunchScreen.storyboard */,
 				1758D7841CE7B56400EC84A1 /* Info.plist */,
-				1758D78A1CE7BD4E00EC84A1 /* Pedal.sks */,
 			);
 			path = GG;
+			sourceTree = "<group>";
+		};
+		17E894401CEA5D5800FC108F /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				17E894411CEA5D6200FC108F /* DynamicType.swift */,
+				17E894431CEA636800FC108F /* GeneratorType.swift */,
+			);
+			name = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,8 +173,10 @@
 			files = (
 				1725B7DD1CE91C0E0066EA13 /* Pedal.swift in Sources */,
 				1758D7791CE7B56400EC84A1 /* GameScene.swift in Sources */,
+				17E894421CEA5D6200FC108F /* DynamicType.swift in Sources */,
 				1758D77B1CE7B56400EC84A1 /* GameViewController.swift in Sources */,
 				1758D7751CE7B56400EC84A1 /* AppDelegate.swift in Sources */,
+				17E894441CEA636800FC108F /* GeneratorType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

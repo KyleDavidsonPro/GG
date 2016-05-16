@@ -15,51 +15,63 @@ private struct Constants {
 class GameScene: SKScene {
     
     var pedals: [Pedal] = []
+    var living: [DynamicSprite] = []
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         self.physicsWorld.gravity = CGVector(dx: 0.0, dy: 0.0)
         self.physicsWorld.contactDelegate = self
-        self.setupPedals()
+        self.generateWorld()
     }
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
     
-    func setupPedals() {
-        for i in 1...Constants.noOfPedals {
-            if let pedalRef = self.childNodeWithName("pedal_\(i)") as? SKReferenceNode,
-                pedal = pedalRef.childNodeWithName("pedal") as? Pedal {
-                pedals.append(pedal)
-                assert(pedals.count == Constants.noOfPedals)
-            }
+    func generateWorld() {
+        guard let pedals = Pedal.generate(self, sequence: 1...Constants.noOfPedals) else {
+            assertionFailure("Something's wrong with the world")
+            return
         }
+        
+        self.pedals = pedals
+        self.living.append(pedals.flatten())
     }
 }
 
 // MARK: Touches
 
 extension GameScene {
+    private enum TouchType {
+        case Began
+        case Moved
+        case Ended
+    }
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        for touch in touches {
+        if let touch = touches.first {
             let location = touch.locationInNode(self)
-            let touchedNode = nodeAtPoint(location)
-            
-            if let pedal = touchedNode as? Pedal {
-                pedal.pushDown()
-            }
+            notifiyWorld(location, .Began)
+        }
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if let touch = touches.first {
+            let location = touch.locationInNode(self)
+            notifiyWorld(location, .Moved)
         }
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        for touch in touches {
+        if let touch = touches.first {
             let location = touch.locationInNode(self)
-            let touchedNode = nodeAtPoint(location)
-            
-            if let pedal = touchedNode as? Pedal {
-                pedal.pullUp()
-            }
+            notifiyWorld(location, .Ended)
+        }
+    }
+    
+    func notifiyWorld(location: CGPoint, touchType: TouchType) {
+        for pedal in pedals {
+            pedal.(self, location: location)
         }
     }
 }
