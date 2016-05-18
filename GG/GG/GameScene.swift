@@ -10,11 +10,13 @@ import SpriteKit
 
 private struct Constants {
     static let noOfPedals = 6
+    static let noOfRows = 3
 }
 
 class GameScene: SKScene {
     
     var pedals: [Pedal] = []
+    var rows: [Row] = []
     var living: [DynamicSprite] = []
     
     override func didMoveToView(view: SKView) {
@@ -29,12 +31,15 @@ class GameScene: SKScene {
     }
     
     func generateWorld() {
-        guard let pedals = Pedal.generate(self, sequence: 1...Constants.noOfPedals) else {
+        /// Generate Pedals
+        guard let pedals = Pedal.generate(self, sequence: 1...Constants.noOfPedals),
+            rows = Row.generate(self, sequence: 1...Constants.noOfRows) else {
             assertionFailure("Something's wrong with the world")
             return
         }
         
         self.pedals = pedals
+        self.rows = rows
         self.living.appendContentsOf(pedals.flatMap { $0 as DynamicSprite })
     }
 }

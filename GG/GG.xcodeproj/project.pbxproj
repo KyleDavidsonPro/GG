@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		170E37EC1CECFA630076FEF4 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170E37EB1CECFA630076FEF4 /* Coin.swift */; };
+		170E37EE1CECFA950076FEF4 /* Coin.sks in Resources */ = {isa = PBXBuildFile; fileRef = 170E37ED1CECFA950076FEF4 /* Coin.sks */; };
+		170E37F11CECFCEB0076FEF4 /* Row.sks in Resources */ = {isa = PBXBuildFile; fileRef = 170E37F01CECFCEB0076FEF4 /* Row.sks */; };
+		170E37F31CECFE530076FEF4 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170E37F21CECFE530076FEF4 /* Row.swift */; };
 		1725B7DD1CE91C0E0066EA13 /* Pedal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1725B7DC1CE91C0E0066EA13 /* Pedal.swift */; };
 		1758D7751CE7B56400EC84A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1758D7741CE7B56400EC84A1 /* AppDelegate.swift */; };
 		1758D7771CE7B56400EC84A1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1758D7761CE7B56400EC84A1 /* GameScene.sks */; };
@@ -21,6 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		170E37EB1CECFA630076FEF4 /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		170E37ED1CECFA950076FEF4 /* Coin.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Coin.sks; sourceTree = "<group>"; };
+		170E37F01CECFCEB0076FEF4 /* Row.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Row.sks; sourceTree = "<group>"; };
+		170E37F21CECFE530076FEF4 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		1725B7DC1CE91C0E0066EA13 /* Pedal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pedal.swift; sourceTree = "<group>"; };
 		1758D7711CE7B56400EC84A1 /* GG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1758D7741CE7B56400EC84A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +55,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		170E37EA1CECFA430076FEF4 /* Coin */ = {
+			isa = PBXGroup;
+			children = (
+				170E37EB1CECFA630076FEF4 /* Coin.swift */,
+				170E37ED1CECFA950076FEF4 /* Coin.sks */,
+			);
+			name = Coin;
+			sourceTree = "<group>";
+		};
+		170E37EF1CECFCE30076FEF4 /* Row */ = {
+			isa = PBXGroup;
+			children = (
+				170E37F01CECFCEB0076FEF4 /* Row.sks */,
+				170E37F21CECFE530076FEF4 /* Row.swift */,
+			);
+			name = Row;
+			sourceTree = "<group>";
+		};
 		1725B7DB1CE91BFA0066EA13 /* Pedal */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +101,8 @@
 		1758D7731CE7B56400EC84A1 /* GG */ = {
 			isa = PBXGroup;
 			children = (
+				170E37EF1CECFCE30076FEF4 /* Row */,
+				170E37EA1CECFA430076FEF4 /* Coin */,
 				17E894401CEA5D5800FC108F /* Protocol */,
 				1725B7DB1CE91BFA0066EA13 /* Pedal */,
 				1758D7741CE7B56400EC84A1 /* AppDelegate.swift */,
@@ -156,11 +184,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				170E37EE1CECFA950076FEF4 /* Coin.sks in Resources */,
 				1758D7771CE7B56400EC84A1 /* GameScene.sks in Resources */,
 				1758D7831CE7B56400EC84A1 /* LaunchScreen.storyboard in Resources */,
 				1758D7801CE7B56400EC84A1 /* Assets.xcassets in Resources */,
 				1758D77E1CE7B56400EC84A1 /* Main.storyboard in Resources */,
 				1758D78B1CE7BD4E00EC84A1 /* Pedal.sks in Resources */,
+				170E37F11CECFCEB0076FEF4 /* Row.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,8 +205,10 @@
 				1758D7791CE7B56400EC84A1 /* GameScene.swift in Sources */,
 				17E894421CEA5D6200FC108F /* DynamicType.swift in Sources */,
 				1758D77B1CE7B56400EC84A1 /* GameViewController.swift in Sources */,
+				170E37F31CECFE530076FEF4 /* Row.swift in Sources */,
 				1758D7751CE7B56400EC84A1 /* AppDelegate.swift in Sources */,
 				17E894441CEA636800FC108F /* GeneratorType.swift in Sources */,
+				170E37EC1CECFA630076FEF4 /* Coin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

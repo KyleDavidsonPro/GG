@@ -45,7 +45,6 @@ extension Pedal: DynamicSprite {
         } else {
             pullUp()
         }
-
     }
     
     func touchBegan() {
@@ -87,5 +86,4 @@ extension Pedal: GeneratorSprite {
         
         return copies
     }
-    
 }
