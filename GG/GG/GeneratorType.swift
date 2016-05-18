@@ -10,6 +10,6 @@ import Foundation
 import SpriteKit
 
 protocol GeneratorSprite: class {
-    associatedtype InstanceType
-    static func generate(scene: SKScene, sequence: Range<Int>?) -> [InstanceType]?
+    associatedtype Object
+    static func generate(scene: SKScene, sequence: Range<Int>?) -> [Object]?
 }

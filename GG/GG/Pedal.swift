@@ -32,22 +32,32 @@ extension Pedal: DynamicSprite {
         //no-op
     }
     
-    func touchBegan(scene: SKScene, location: CGPoint) {
+    func notifyTouch(touchType: TouchType, scene: SKScene, location: CGPoint) {
         if self == scene.nodeAtPoint(location) {
-            pushDown()
-        }
-    }
-    
-    func touchMoved(scene: SKScene, location: CGPoint) {
-        if self == scene.nodeAtPoint(location) {
-            pushDown()
-        }
-    }
-    
-    func touchEnded(scene: SKScene, location: CGPoint) {
-        if self == scene.nodeAtPoint(location) {
+            switch touchType {
+            case .Began:
+                touchBegan()
+            case .Moved:
+                touchMoved()
+            case.Ended:
+                touchEnded()
+            }
+        } else {
             pullUp()
         }
+
+    }
+    
+    func touchBegan() {
+        pushDown()
+    }
+    
+    func touchMoved() {
+        pushDown()
+    }
+    
+    func touchEnded() {
+        pullUp()
     }
 }
 

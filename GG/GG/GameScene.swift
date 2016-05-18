@@ -35,43 +35,38 @@ class GameScene: SKScene {
         }
         
         self.pedals = pedals
-        self.living.append(pedals.flatten())
+        self.living.appendContentsOf(pedals.flatMap { $0 as DynamicSprite })
     }
 }
 
 // MARK: Touches
 
 extension GameScene {
-    private enum TouchType {
-        case Began
-        case Moved
-        case Ended
-    }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if let touch = touches.first {
             let location = touch.locationInNode(self)
-            notifiyWorld(location, .Began)
+            notifiyWorld(location, touchType: .Began)
         }
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if let touch = touches.first {
             let location = touch.locationInNode(self)
-            notifiyWorld(location, .Moved)
+            notifiyWorld(location, touchType: .Moved)
         }
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if let touch = touches.first {
             let location = touch.locationInNode(self)
-            notifiyWorld(location, .Ended)
+            notifiyWorld(location, touchType: .Ended)
         }
     }
     
-    func notifiyWorld(location: CGPoint, touchType: TouchType) {
+    private func notifiyWorld(location: CGPoint, touchType: TouchType) {
         for pedal in pedals {
-            pedal.(self, location: location)
+            pedal.notifyTouch(touchType, scene: self, location: location)
         }
     }
 }

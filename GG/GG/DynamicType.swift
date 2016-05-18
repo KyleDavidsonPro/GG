@@ -9,9 +9,16 @@
 import Foundation
 import SpriteKit
 
+enum TouchType {
+    case Began
+    case Moved
+    case Ended
+}
+
 protocol DynamicSprite: class {
     func update(currentTime: CFTimeInterval) -> Void
-    func touchBegan(scene: SKScene, location: CGPoint) -> Void
-    func touchMoved(scene: SKScene, location: CGPoint) -> Void
-    func touchEnded(scene: SKScene, location: CGPoint) -> Void
+    func notifyTouch(touchType: TouchType, scene: SKScene, location: CGPoint) -> Void
+    func touchBegan() -> Void
+    func touchMoved() -> Void
+    func touchEnded() -> Void
 }
