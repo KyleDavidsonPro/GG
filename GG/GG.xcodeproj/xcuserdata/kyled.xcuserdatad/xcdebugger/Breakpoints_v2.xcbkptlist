@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GG/Row.swift"
-            timestampString = "485293964.93398"
+            filePath = "GG/Coin.swift"
+            timestampString = "485381223.783335"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "generate(_:sequence:)"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "configureWithNode(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GG/Coin.swift"
+            timestampString = "485381315.387678"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "configureWithNode(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

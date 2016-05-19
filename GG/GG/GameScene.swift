@@ -40,6 +40,12 @@ class GameScene: SKScene {
         
         self.pedals = pedals
         self.rows = rows
+        
+        Coin.spawnAtNode(self.rows[0])
+        Coin.spawnAtNode(self.rows[1])
+        Coin.spawnAtNode(self.rows[2])
+        
+        /// Add Sprites to Living Array
         self.living.appendContentsOf(pedals.flatMap { $0 as DynamicSprite })
     }
 }

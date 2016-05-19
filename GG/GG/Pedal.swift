@@ -10,8 +10,11 @@ import SpriteKit
 
 class Pedal: SKSpriteNode {
     
+    var originalColor: UIColor!
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        self.originalColor = self.color
     }
     
     func pushDown() {
@@ -19,7 +22,7 @@ class Pedal: SKSpriteNode {
     }
     
     func pullUp() {
-        self.color = UIColor.greenColor()
+        self.color = originalColor
     }
     
 }
