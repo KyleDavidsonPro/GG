@@ -41,12 +41,22 @@ class GameScene: SKScene {
         self.pedals = pedals
         self.rows = rows
         
-        Coin.spawnAtNode(self.rows[0])
-        Coin.spawnAtNode(self.rows[1])
-        Coin.spawnAtNode(self.rows[2])
-        
         /// Add Sprites to Living Array
         self.living.appendContentsOf(pedals.flatMap { $0 as DynamicSprite })
+        
+        let wait = SKAction.waitForDuration(3, withRange: 2)
+        let spawn = SKAction.runBlock {
+            let row = Int(arc4random_uniform(3))
+            guard row < self.rows.count else {
+                assertionFailure("Row out of bounds")
+                return
+            }
+            
+            Coin.spawnAtNode(self.rows[row])
+        }
+        
+        let sequence = SKAction.sequence([wait, spawn])
+        self.runAction(SKAction.repeatActionForever(sequence))
     }
 }
 

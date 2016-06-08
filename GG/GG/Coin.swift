@@ -18,29 +18,27 @@ class Coin: SKSpriteNode {
     init() {
         let texture = SKTexture(imageNamed: "Spaceship")
         super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
-        self.size = CGSize(width: 25, height: 25)
+        self.size = CGSize(width: 100, height: 100)
+        self.physicsBody = nil
+        self.position = CGPointZero
+        self.zPosition = 2
     }
     
     func configureWithNode(node: SKNode) {
         let actionMove: SKAction
         let actionMoveDone: SKAction
         
-        // Determine speed of the coin
-        let minDuration: UInt32 = 2
-        let maxDuration: UInt32 = 4
-        let rangeDuration: UInt32 = maxDuration - minDuration
-        let actualDuration = (arc4random() % rangeDuration) + minDuration
-        
         // Left or right
         let diceRoll = Int(arc4random_uniform(2))
-        
+        var x: CGFloat
         if diceRoll == 0 {
-            actionMove = SKAction.moveToX(-self.size.width/2, duration: Double(actualDuration))
-            actionMoveDone = SKAction.removeFromParent()
+            x = -node.frame.width/2 + -self.size.width/2
         } else {
-            actionMove = SKAction.moveToX(node.frame.size.width + (self.size.width / 2), duration: Double(actualDuration))
-            actionMoveDone = SKAction.removeFromParent()
+            x = self.size.width/2 + node.frame.width/2
         }
+        
+        actionMove = SKAction.moveToX(x, duration: 4.0)
+        actionMoveDone = SKAction.removeFromParent()
         
         self.runAction(SKAction.sequence([actionMove, actionMoveDone]))
     }
@@ -49,8 +47,8 @@ class Coin: SKSpriteNode {
 extension Coin: Spawnable {
     static func spawnAtNode(node: SKNode) -> Coin? {
         let coin = Coin()
-        coin.configureWithNode(node)
         node.addChild(coin)
+        coin.configureWithNode(node)
         
         return coin
     }
