@@ -10,7 +10,9 @@ import SpriteKit
 
 class Pedal: SKSpriteNode {
     
-    var originalColor: UIColor!
+    private var originalColor: UIColor!
+    private var pressed = false
+    weak private var intersecting: SKNode?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -19,10 +21,12 @@ class Pedal: SKSpriteNode {
     
     func pushDown() {
         self.color = UIColor.clearColor()
+        self.pressed = true
     }
     
     func pullUp() {
         self.color = originalColor
+        self.pressed = false
     }
     
 }
@@ -32,7 +36,9 @@ class Pedal: SKSpriteNode {
 extension Pedal: DynamicSprite {
     
     func update(currentTime: CFTimeInterval) {
-        //no-op
+        if let node = self.intersecting as? ConveyerItem where self.pressed {
+            node.trigger()
+        }
     }
     
     func notifyTouch(touchType: TouchType, scene: SKScene, location: CGPoint) {
@@ -40,9 +46,9 @@ extension Pedal: DynamicSprite {
             switch touchType {
             case .Began:
                 touchBegan()
-            case .Moved:
-                touchMoved()
             case.Ended:
+                touchEnded()
+            default:
                 touchEnded()
             }
         } else {
@@ -54,12 +60,30 @@ extension Pedal: DynamicSprite {
         pushDown()
     }
     
-    func touchMoved() {
-        pushDown()
-    }
-    
     func touchEnded() {
         pullUp()
+    }
+    
+    func contactBeganWith(node: SKNode?) {
+        guard let node = node where node.physicsBody?.categoryBitMask == Constants.CoinCategory else {
+            assertionFailure("Wrong contact")
+            return
+        }
+        
+        self.intersecting = node
+    }
+    
+    func contactEndedWith(node: SKNode?) {
+        guard let node = node where node.physicsBody?.categoryBitMask == Constants.CoinCategory else {
+            assertionFailure("Wrong contact")
+            return
+        }
+        
+        if let conveyerNode = node as? ConveyerItem {
+            conveyerNode.miss()
+        }
+        
+        self.intersecting = nil
     }
 }
 

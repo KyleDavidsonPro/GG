@@ -8,32 +8,39 @@
 
 import SpriteKit
 
-private struct Constants {
-    static let noOfPedals = 6
-    static let noOfRows = 3
-}
-
 class GameScene: SKScene {
-    
     var pedals: [Pedal] = []
     var rows: [Row] = []
     var living: [DynamicSprite] = []
+    var score: Int = 0
+    var label: SKLabelNode!
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         self.physicsWorld.gravity = CGVector(dx: 0.0, dy: 0.0)
         self.physicsWorld.contactDelegate = self
         self.generateWorld()
+        
+        // Score Label
+        label = SKLabelNode(fontNamed: "Chalkduster")
+        label.fontSize = 40
+        label.fontColor = SKColor.blackColor()
+        label.position = CGPoint(x: size.width/2, y: size.height/2)
+        addChild(label)
     }
    
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+        for pedal in pedals {
+            pedal.update(currentTime)
+        }
+        
+        label.text = "\(score)"
     }
     
     func generateWorld() {
         /// Generate Pedals
-        guard let pedals = Pedal.generate(self, sequence: 1...Constants.noOfPedals),
-            rows = Row.generate(self, sequence: 1...Constants.noOfRows) else {
+        guard let pedals = Pedal.generate(self, sequence: 1...Constants.PedalAmount),
+            rows = Row.generate(self, sequence: 1...Constants.RowAmount) else {
             assertionFailure("Something's wrong with the world")
             return
         }
@@ -52,7 +59,8 @@ class GameScene: SKScene {
                 return
             }
             
-            Coin.spawnAtNode(self.rows[row])
+            let coin = Coin.spawnAtNode(self.rows[row])
+            coin?.delegate = self
         }
         
         let sequence = SKAction.sequence([wait, spawn])
@@ -71,13 +79,6 @@ extension GameScene {
         }
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if let touch = touches.first {
-            let location = touch.locationInNode(self)
-            notifiyWorld(location, touchType: .Moved)
-        }
-    }
-    
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if let touch = touches.first {
             let location = touch.locationInNode(self)
@@ -89,6 +90,18 @@ extension GameScene {
         for pedal in pedals {
             pedal.notifyTouch(touchType, scene: self, location: location)
         }
+    }
+}
+
+// MARK: Conveyer Delegate
+extension GameScene: ConveyerItemDelegate {
+    func conveyerItemDidTrigger(item: SKSpriteNode) {
+        //TO-DO: Will eventually extend with different coin types (e.g. bomb) which you either want to trigger or miss
+        score = score + 1
+    }
+    
+    func conveyerItemDidMiss(item: SKSpriteNode) {
+        //no-op-yet
     }
 }
 
@@ -106,5 +119,30 @@ extension GameScene: SKPhysicsContactDelegate {
             firstBody = contact.bodyB;
             secondBody = contact.bodyA;
         }
+        
+        if (firstBody.categoryBitMask == Constants.PedalCategory) {
+            let pedal = firstBody.node as? Pedal
+            pedal?.contactBeganWith(secondBody.node)
+        }
     }
+    
+    func didEndContact(contact: SKPhysicsContact) {
+        let firstBody: SKPhysicsBody
+        let secondBody: SKPhysicsBody
+        
+        if (contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask) {
+            firstBody = contact.bodyA;
+            secondBody = contact.bodyB;
+        } else {
+            firstBody = contact.bodyB;
+            secondBody = contact.bodyA;
+        }
+        
+        if (firstBody.categoryBitMask == Constants.PedalCategory) {
+            let pedal = firstBody.node as? Pedal
+            pedal?.contactEndedWith(secondBody.node)
+        }
+    }
+    
+    
 }

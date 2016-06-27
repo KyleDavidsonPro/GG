@@ -11,6 +11,8 @@ import SpriteKit
 
 class Coin: SKSpriteNode {
     
+    var delegate: ConveyerItemDelegate!
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -19,9 +21,13 @@ class Coin: SKSpriteNode {
         let texture = SKTexture(imageNamed: "Spaceship")
         super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
         self.size = CGSize(width: 100, height: 100)
-        self.physicsBody = nil
         self.position = CGPointZero
         self.zPosition = 2
+        self.physicsBody = SKPhysicsBody(rectangleOfSize: self.size)
+        self.physicsBody?.categoryBitMask = Constants.CoinCategory
+        self.physicsBody?.contactTestBitMask = Constants.PedalCategory
+        self.physicsBody?.collisionBitMask = 0
+        self.physicsBody?.dynamic = false
     }
     
     func configureWithNode(node: SKNode) {
@@ -37,10 +43,22 @@ class Coin: SKSpriteNode {
             x = self.size.width/2 + node.frame.width/2
         }
         
-        actionMove = SKAction.moveToX(x, duration: 4.0)
+        actionMove = SKAction.moveToX(x, duration: 2.5)
         actionMoveDone = SKAction.removeFromParent()
         
         self.runAction(SKAction.sequence([actionMove, actionMoveDone]))
+    }
+}
+
+extension Coin: ConveyerItem {
+    func trigger() {
+        delegate.conveyerItemDidTrigger(self)
+        self.removeFromParent()
+    }
+    
+    func miss() {
+        delegate.conveyerItemDidMiss(self)
+        self.removeFromParent()
     }
 }
 

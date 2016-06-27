@@ -19,6 +19,7 @@ protocol DynamicSprite: class {
     func update(currentTime: CFTimeInterval) -> Void
     func notifyTouch(touchType: TouchType, scene: SKScene, location: CGPoint) -> Void
     func touchBegan() -> Void
-    func touchMoved() -> Void
     func touchEnded() -> Void
+    func contactBeganWith(node: SKNode?) -> Void
+    func contactEndedWith(node: SKNode?) -> Void
 }
