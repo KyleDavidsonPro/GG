@@ -10,6 +10,10 @@ import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

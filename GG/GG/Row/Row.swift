@@ -10,8 +10,14 @@ import Foundation
 import SpriteKit
 
 class Row: SKSpriteNode {
+    var scoreDigit: SKLabelNode = SKLabelNode(fontNamed: "Chalkduster")
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        scoreDigit.fontSize = 40
+        scoreDigit.fontColor = SKColor.whiteColor()
+        scoreDigit.position = CGPoint(x: size.width/2, y: size.height/2)
+
     }
 }
 

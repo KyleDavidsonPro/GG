@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import Foundation
 
 class GameScene: SKScene {
     var pedals: [Pedal] = []
@@ -20,21 +21,15 @@ class GameScene: SKScene {
         self.physicsWorld.gravity = CGVector(dx: 0.0, dy: 0.0)
         self.physicsWorld.contactDelegate = self
         self.generateWorld()
-        
-        // Score Label
-        label = SKLabelNode(fontNamed: "Chalkduster")
-        label.fontSize = 40
-        label.fontColor = SKColor.blackColor()
-        label.position = CGPoint(x: size.width/2, y: size.height/2)
-        addChild(label)
     }
    
     override func update(currentTime: CFTimeInterval) {
         for pedal in pedals {
             pedal.update(currentTime)
         }
+
         
-        label.text = "\(score)"
+        
     }
     
     func generateWorld() {

@@ -18,7 +18,7 @@ class Coin: SKSpriteNode {
     }
     
     init() {
-        let texture = SKTexture(imageNamed: "Spaceship")
+        let texture = SKTexture(imageNamed: "basketball")
         super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
         self.size = CGSize(width: 100, height: 100)
         self.position = CGPointZero
@@ -43,7 +43,7 @@ class Coin: SKSpriteNode {
             x = self.size.width/2 + node.frame.width/2
         }
         
-        actionMove = SKAction.moveToX(x, duration: 2.5)
+        actionMove = SKAction.moveToX(x, duration: 1)
         actionMoveDone = SKAction.removeFromParent()
         
         self.runAction(SKAction.sequence([actionMove, actionMoveDone]))
