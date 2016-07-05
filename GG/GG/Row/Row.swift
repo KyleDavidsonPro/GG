@@ -10,14 +10,15 @@ import Foundation
 import SpriteKit
 
 class Row: SKSpriteNode {
-    var scoreDigit: SKLabelNode = SKLabelNode(fontNamed: "Chalkduster")
+    var scoreDigit: SKLabelNode = SKLabelNode(fontNamed: "AmericanTypewriter-Bold")
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         scoreDigit.fontSize = 40
         scoreDigit.fontColor = SKColor.whiteColor()
-        scoreDigit.position = CGPoint(x: size.width/2, y: size.height/2)
-
+        print(scoreDigit.position)
+        scoreDigit.text = "0"
+        self.addChild(scoreDigit)
     }
 }
 

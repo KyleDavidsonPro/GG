@@ -14,7 +14,6 @@ class GameScene: SKScene {
     var rows: [Row] = []
     var living: [DynamicSprite] = []
     var score: Int = 0
-    var label: SKLabelNode!
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -27,9 +26,6 @@ class GameScene: SKScene {
         for pedal in pedals {
             pedal.update(currentTime)
         }
-
-        
-        
     }
     
     func generateWorld() {
@@ -93,6 +89,10 @@ extension GameScene: ConveyerItemDelegate {
     func conveyerItemDidTrigger(item: SKSpriteNode) {
         //TO-DO: Will eventually extend with different coin types (e.g. bomb) which you either want to trigger or miss
         score = score + 1
+        let scoreText = String(format: "%03d", score)
+        for var i = 0; i < rows.count; i += 1 {
+            rows[i].scoreDigit.text = "\(scoreText[i])"
+        }
     }
     
     func conveyerItemDidMiss(item: SKSpriteNode) {
@@ -138,6 +138,18 @@ extension GameScene: SKPhysicsContactDelegate {
             pedal?.contactEndedWith(secondBody.node)
         }
     }
-    
-    
 }
+
+// Mark: String Utility 
+extension String {
+    subscript (i: Int) -> Character {
+        return self[self.startIndex.advancedBy(i)]
+    }
+    
+    subscript (r: Range<Int>) -> String {
+        let start = startIndex.advancedBy(r.startIndex)
+        let end = start.advancedBy(r.endIndex - r.startIndex)
+        return self[Range(start ..< end)]
+    }
+}
+
