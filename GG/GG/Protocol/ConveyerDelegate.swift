@@ -16,6 +16,6 @@ protocol ConveyerItem: class {
 }
 
 protocol ConveyerItemDelegate: class {
-    func conveyerItemDidTrigger(item: SKSpriteNode) -> Void
-    func conveyerItemDidMiss(item: SKSpriteNode) -> Void
+    func conveyerItemDidTrigger(item: Coin) -> Void
+    func conveyerItemDidMiss(item: Coin) -> Void
 }

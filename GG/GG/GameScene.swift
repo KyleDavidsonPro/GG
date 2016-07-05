@@ -50,12 +50,26 @@ class GameScene: SKScene {
                 return
             }
             
-            let coin = Coin.spawnAtNode(self.rows[row])
-            coin?.delegate = self
+            let diceRoll = Int(arc4random_uniform(2))
+            if diceRoll == 1 {
+                let bomb = Bomb.spawnAtNode(self.rows[row])
+                bomb?.delegate = self
+            } else {
+                let bb = BasketBall.spawnAtNode(self.rows[row])
+                bb?.delegate = self
+            }
         }
         
         let sequence = SKAction.sequence([wait, spawn])
         self.runAction(SKAction.repeatActionForever(sequence))
+    }
+    
+    func updateScore() {
+        score = score + 1
+        let scoreText = String(format: "%03d", score)
+        for var i = 0; i < rows.count; i += 1 {
+            rows[i].scoreDigit.text = "\(scoreText[i])"
+        }
     }
 }
 
@@ -86,16 +100,18 @@ extension GameScene {
 
 // MARK: Conveyer Delegate
 extension GameScene: ConveyerItemDelegate {
-    func conveyerItemDidTrigger(item: SKSpriteNode) {
-        //TO-DO: Will eventually extend with different coin types (e.g. bomb) which you either want to trigger or miss
-        score = score + 1
-        let scoreText = String(format: "%03d", score)
-        for var i = 0; i < rows.count; i += 1 {
-            rows[i].scoreDigit.text = "\(scoreText[i])"
+    func conveyerItemDidTrigger(item: Coin) {
+        switch item.type {
+        case .BasketBall:
+            print("bb")
+        case .Bomb:
+            print("boom")
         }
+        
+        updateScore()
     }
     
-    func conveyerItemDidMiss(item: SKSpriteNode) {
+    func conveyerItemDidMiss(item: Coin) {
         //no-op-yet
     }
 }

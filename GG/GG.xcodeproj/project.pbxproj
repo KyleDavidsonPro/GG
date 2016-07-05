@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		170E37EC1CECFA630076FEF4 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170E37EB1CECFA630076FEF4 /* Coin.swift */; };
+		170E37EC1CECFA630076FEF4 /* BasketBall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170E37EB1CECFA630076FEF4 /* BasketBall.swift */; };
 		170E37F11CECFCEB0076FEF4 /* Row.sks in Resources */ = {isa = PBXBuildFile; fileRef = 170E37F01CECFCEB0076FEF4 /* Row.sks */; };
 		170E37F31CECFE530076FEF4 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170E37F21CECFE530076FEF4 /* Row.swift */; };
-		170E37F71CEE45E90076FEF4 /* SpawnableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170E37F61CEE45E90076FEF4 /* SpawnableType.swift */; };
+		170E37F71CEE45E90076FEF4 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170E37F61CEE45E90076FEF4 /* Coin.swift */; };
 		1725B7DD1CE91C0E0066EA13 /* Pedal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1725B7DC1CE91C0E0066EA13 /* Pedal.swift */; };
 		1758D7751CE7B56400EC84A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1758D7741CE7B56400EC84A1 /* AppDelegate.swift */; };
 		1758D7771CE7B56400EC84A1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1758D7761CE7B56400EC84A1 /* GameScene.sks */; };
@@ -22,6 +22,7 @@
 		1758D78B1CE7BD4E00EC84A1 /* Pedal.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1758D78A1CE7BD4E00EC84A1 /* Pedal.sks */; };
 		177444121D298AFC0084EB5D /* BasketBomb.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 177444111D298AFC0084EB5D /* BasketBomb.atlas */; };
 		177444141D298B920084EB5D /* Background.sks in Resources */ = {isa = PBXBuildFile; fileRef = 177444131D298B920084EB5D /* Background.sks */; };
+		17AD1FA91D2C56C40067E61C /* Bomb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AD1FA81D2C56C40067E61C /* Bomb.swift */; };
 		17C01D251D21BEFE00BC0366 /* ConveyerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C01D241D21BEFE00BC0366 /* ConveyerDelegate.swift */; };
 		17E213DF1D08BEE3008CCF8B /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E213DE1D08BEE3008CCF8B /* constants.swift */; };
 		17E894421CEA5D6200FC108F /* DynamicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E894411CEA5D6200FC108F /* DynamicType.swift */; };
@@ -29,10 +30,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		170E37EB1CECFA630076FEF4 /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		170E37EB1CECFA630076FEF4 /* BasketBall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketBall.swift; sourceTree = "<group>"; };
 		170E37F01CECFCEB0076FEF4 /* Row.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Row.sks; sourceTree = "<group>"; };
 		170E37F21CECFE530076FEF4 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
-		170E37F61CEE45E90076FEF4 /* SpawnableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpawnableType.swift; sourceTree = "<group>"; };
+		170E37F61CEE45E90076FEF4 /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coin.swift; path = ../Protocol/Coin.swift; sourceTree = "<group>"; };
 		1725B7DC1CE91C0E0066EA13 /* Pedal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pedal.swift; sourceTree = "<group>"; };
 		1758D7711CE7B56400EC84A1 /* GG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1758D7741CE7B56400EC84A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +47,7 @@
 		1758D78A1CE7BD4E00EC84A1 /* Pedal.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Pedal.sks; sourceTree = "<group>"; };
 		177444111D298AFC0084EB5D /* BasketBomb.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = BasketBomb.atlas; sourceTree = "<group>"; };
 		177444131D298B920084EB5D /* Background.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Background.sks; sourceTree = "<group>"; };
+		17AD1FA81D2C56C40067E61C /* Bomb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bomb.swift; sourceTree = "<group>"; };
 		17C01D241D21BEFE00BC0366 /* ConveyerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConveyerDelegate.swift; sourceTree = "<group>"; };
 		17E213DE1D08BEE3008CCF8B /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		17E894411CEA5D6200FC108F /* DynamicType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicType.swift; sourceTree = "<group>"; };
@@ -66,7 +68,9 @@
 		170E37EA1CECFA430076FEF4 /* Coin */ = {
 			isa = PBXGroup;
 			children = (
-				170E37EB1CECFA630076FEF4 /* Coin.swift */,
+				170E37F61CEE45E90076FEF4 /* Coin.swift */,
+				170E37EB1CECFA630076FEF4 /* BasketBall.swift */,
+				17AD1FA81D2C56C40067E61C /* Bomb.swift */,
 			);
 			path = Coin;
 			sourceTree = "<group>";
@@ -133,7 +137,6 @@
 				17C01D241D21BEFE00BC0366 /* ConveyerDelegate.swift */,
 				17E894411CEA5D6200FC108F /* DynamicType.swift */,
 				17E894431CEA636800FC108F /* GeneratorType.swift */,
-				170E37F61CEE45E90076FEF4 /* SpawnableType.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -218,13 +221,14 @@
 				1758D7791CE7B56400EC84A1 /* GameScene.swift in Sources */,
 				17E894421CEA5D6200FC108F /* DynamicType.swift in Sources */,
 				17E213DF1D08BEE3008CCF8B /* constants.swift in Sources */,
-				170E37F71CEE45E90076FEF4 /* SpawnableType.swift in Sources */,
+				170E37F71CEE45E90076FEF4 /* Coin.swift in Sources */,
+				17AD1FA91D2C56C40067E61C /* Bomb.swift in Sources */,
 				17C01D251D21BEFE00BC0366 /* ConveyerDelegate.swift in Sources */,
 				1758D77B1CE7B56400EC84A1 /* GameViewController.swift in Sources */,
 				170E37F31CECFE530076FEF4 /* Row.swift in Sources */,
 				1758D7751CE7B56400EC84A1 /* AppDelegate.swift in Sources */,
 				17E894441CEA636800FC108F /* GeneratorType.swift in Sources */,
-				170E37EC1CECFA630076FEF4 /* Coin.swift in Sources */,
+				170E37EC1CECFA630076FEF4 /* BasketBall.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,16 +1,16 @@
 //
-//  Coin.swift
+//  Bomb.swift
 //  GG
 //
-//  Created by Kyle Davidson on 18/05/2016.
+//  Created by Kyle Davidson on 05/07/2016.
 //  Copyright © 2016 Kyle Davidson. All rights reserved.
 //
 
 import Foundation
 import SpriteKit
 
-class Coin: SKSpriteNode {
-    
+class Bomb: SKSpriteNode, Coin {
+    let type: CoinType = .Bomb
     var delegate: ConveyerItemDelegate!
     
     required init?(coder aDecoder: NSCoder) {
@@ -21,13 +21,13 @@ class Coin: SKSpriteNode {
         let texture = SKTexture(imageNamed: "basketball")
         super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
         self.size = CGSize(width: 100, height: 100)
-        self.position = CGPointZero
         self.zPosition = 2
         self.physicsBody = SKPhysicsBody(rectangleOfSize: self.size)
         self.physicsBody?.categoryBitMask = Constants.CoinCategory
         self.physicsBody?.contactTestBitMask = Constants.PedalCategory
-        self.physicsBody?.collisionBitMask = 0
         self.physicsBody?.dynamic = false
+        self.color = UIColor.blueColor()
+        self.colorBlendFactor = 1.0
     }
     
     func configureWithNode(node: SKNode) {
@@ -50,7 +50,7 @@ class Coin: SKSpriteNode {
     }
 }
 
-extension Coin: ConveyerItem {
+extension Bomb: ConveyerItem {
     func trigger() {
         delegate.conveyerItemDidTrigger(self)
         self.removeFromParent()
@@ -62,12 +62,12 @@ extension Coin: ConveyerItem {
     }
 }
 
-extension Coin: Spawnable {
-    static func spawnAtNode(node: SKNode) -> Coin? {
-        let coin = Coin()
-        node.addChild(coin)
-        coin.configureWithNode(node)
+extension Bomb: Spawnable {
+    static func spawnAtNode(node: SKNode) -> Bomb? {
+        let bomb = Bomb()
+        node.addChild(bomb)
+        bomb.configureWithNode(node)
         
-        return coin
+        return bomb
     }
 }

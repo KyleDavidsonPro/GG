@@ -9,6 +9,15 @@
 import Foundation
 import SpriteKit
 
+enum CoinType {
+    case BasketBall
+    case Bomb
+}
+
+protocol Coin: class {
+    var type: CoinType { get }
+}
+
 /// Used to spawn sprites managed in their own sks files
 protocol Spawnable: class {
     associatedtype Object
