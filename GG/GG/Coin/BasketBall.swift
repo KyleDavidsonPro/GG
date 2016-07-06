@@ -20,7 +20,6 @@ class BasketBall: SKSpriteNode, Coin {
     init() {
         let texture = SKTexture(imageNamed: "basketball")
         super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
-        self.size = CGSize(width: 100, height: 100)
         self.zPosition = 2
         self.physicsBody = SKPhysicsBody(rectangleOfSize: self.size)
         self.physicsBody?.categoryBitMask = Constants.CoinCategory
