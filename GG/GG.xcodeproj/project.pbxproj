@@ -23,6 +23,7 @@
 		177444121D298AFC0084EB5D /* BasketBomb.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 177444111D298AFC0084EB5D /* BasketBomb.atlas */; };
 		177444141D298B920084EB5D /* Background.sks in Resources */ = {isa = PBXBuildFile; fileRef = 177444131D298B920084EB5D /* Background.sks */; };
 		17803BB61D2D6D1C002AA32A /* Backgrounds.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 17803BB51D2D6D1C002AA32A /* Backgrounds.atlas */; };
+		17803BB81D2D869E002AA32A /* UI.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 17803BB71D2D869E002AA32A /* UI.atlas */; };
 		17AD1FA91D2C56C40067E61C /* Bomb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AD1FA81D2C56C40067E61C /* Bomb.swift */; };
 		17C01D251D21BEFE00BC0366 /* ConveyerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C01D241D21BEFE00BC0366 /* ConveyerDelegate.swift */; };
 		17E213DF1D08BEE3008CCF8B /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E213DE1D08BEE3008CCF8B /* constants.swift */; };
@@ -49,6 +50,7 @@
 		177444111D298AFC0084EB5D /* BasketBomb.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = BasketBomb.atlas; sourceTree = "<group>"; };
 		177444131D298B920084EB5D /* Background.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Background.sks; sourceTree = "<group>"; };
 		17803BB51D2D6D1C002AA32A /* Backgrounds.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Backgrounds.atlas; sourceTree = "<group>"; };
+		17803BB71D2D869E002AA32A /* UI.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = UI.atlas; sourceTree = "<group>"; };
 		17AD1FA81D2C56C40067E61C /* Bomb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bomb.swift; sourceTree = "<group>"; };
 		17C01D241D21BEFE00BC0366 /* ConveyerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConveyerDelegate.swift; sourceTree = "<group>"; };
 		17E213DE1D08BEE3008CCF8B /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				170E37EF1CECFCE30076FEF4 /* Row */,
 				1758D7741CE7B56400EC84A1 /* AppDelegate.swift */,
 				1758D77F1CE7B56400EC84A1 /* Assets.xcassets */,
+				17803BB71D2D869E002AA32A /* UI.atlas */,
 				17803BB51D2D6D1C002AA32A /* Backgrounds.atlas */,
 				177444111D298AFC0084EB5D /* BasketBomb.atlas */,
 				1758D7841CE7B56400EC84A1 /* Info.plist */,
@@ -209,6 +212,7 @@
 				177444121D298AFC0084EB5D /* BasketBomb.atlas in Resources */,
 				177444141D298B920084EB5D /* Background.sks in Resources */,
 				1758D78B1CE7BD4E00EC84A1 /* Pedal.sks in Resources */,
+				17803BB81D2D869E002AA32A /* UI.atlas in Resources */,
 				17803BB61D2D6D1C002AA32A /* Backgrounds.atlas in Resources */,
 				170E37F11CECFCEB0076FEF4 /* Row.sks in Resources */,
 			);
